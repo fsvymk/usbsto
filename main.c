@@ -8,10 +8,14 @@ int main (int argc, char **argv)
 
     if (argc == 1)
     {
-        printf ("wot no stick?\n");
-        return -1;
+        //printf ("wot no stick?\n");
+        //return -1;
+        usb_ptr = fopen("/dev/usbtmc0","rb");
+
+    }else{
+            usb_ptr = fopen(argv[1],"rb");
     }
-    usb_ptr = fopen(argv[1],"rb");
+
     if(usb_ptr == NULL)
     {
         printf("error opening USB Drive for reading");
